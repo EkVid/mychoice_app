@@ -6,7 +6,7 @@ A full stack item management application built with:
 - **Backend:** Django, Django REST Framework
 - **Database:** PostgreSQL
 
-The application allows users to create, view, update, and delete items and assign them to either the **Primary** (`P`) or **Secondary** (`S`) group with an enforced unique constraint on `(name, group)`.
+The application allows users to create, view, update, and delete items and assign them to either the **Primary** (`P`) or **Secondary** (`S`) group with an enforced unique constraint on `(name, group)`
 
 ---
 
