@@ -46,23 +46,26 @@ export const getItemById = async (id: number) => {
     return resp.json();
 }
 
-export const patchItemById = async (id: number, updated_item: Item): Promise<Item> => {
+export const patchItemById = async (
+    id: number,
+    updated_item: ItemBase
+): Promise<Item> => {
     const resp = await fetch(`${DOMAIN}${ITEMS}/${id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(updated_item)
+        body: JSON.stringify(updated_item),
     });
 
-    if(!resp.ok){
+    if (!resp.ok) {
         throw new Error(FAIL_PATCH);
     }
 
     const data = await resp.json();
 
     return data;
-}
+};
 
 export const deleteItemById = async (id: number) => {
     const resp = await fetch(`${DOMAIN}${ITEMS}/${id}/`, {
