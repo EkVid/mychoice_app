@@ -10,6 +10,6 @@ class ItemCreateView(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
 
 
-class ItemDetailView(generics.RetrieveUpdateAPIView):
+class ItemDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
