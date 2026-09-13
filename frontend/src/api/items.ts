@@ -1,23 +1,17 @@
 import type { Item, ItemBase } from "../commons/types/Item";
 import { 
-    DEV_URL,
-    SIT_URL,
-    PROD_URL,
     ITEMS,
     FAIL_FETCH,
     FAIL_CREATE,
     FAIL_DELETE,
     FAIL_PATCH
 } from "../commons/constants";
+import { config } from "./config";
 
-const config =  {
-    DEV_URL: DEV_URL,
-    SIT_URL: SIT_URL,
-    PROD_URL: PROD_URL,
-} 
+const DOMAIN = config.DEV_URL
 
 export const getItems = async (): Promise<Item[]> => {
-    const resp = await fetch(`${config.DEV_URL}${ITEMS}/`);
+    const resp = await fetch(`${DOMAIN}${ITEMS}/`);
     if(!resp.ok){
         throw new Error(FAIL_FETCH);
     }
@@ -26,7 +20,7 @@ export const getItems = async (): Promise<Item[]> => {
 }
 
 export const createItem = async (item: ItemBase): Promise<Item> => {
-    const resp = await fetch(`${config.DEV_URL}${ITEMS}/`, {
+    const resp = await fetch(`${DOMAIN}${ITEMS}/`, {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
@@ -44,7 +38,7 @@ export const createItem = async (item: ItemBase): Promise<Item> => {
 } 
 
 export const getItemById = async (id: number) => {
-    const resp = await fetch(`${config.DEV_URL}${ITEMS}/${id}/`);
+    const resp = await fetch(`${DOMAIN}${ITEMS}/${id}/`);
     if(!resp.ok){
         throw new Error(FAIL_FETCH);
     }
@@ -53,7 +47,7 @@ export const getItemById = async (id: number) => {
 }
 
 export const patchItemById = async (id: number, updated_item: Item): Promise<Item> => {
-    const resp = await fetch(`${config.DEV_URL}${ITEMS}/${id}/`, {
+    const resp = await fetch(`${DOMAIN}${ITEMS}/${id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -71,7 +65,7 @@ export const patchItemById = async (id: number, updated_item: Item): Promise<Ite
 }
 
 export const deleteItemById = async (id: number) => {
-    const resp = await fetch(`${config.DEV_URL}${ITEMS}/${id}/`, {
+    const resp = await fetch(`${DOMAIN}${ITEMS}/${id}/`, {
         method: "DELETE",
     });
 
