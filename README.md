@@ -162,3 +162,11 @@ The frontend application will run at [http://localhost:5173/](http://localhost:5
 
 - **Groups:** `"P"` (Primary) or `"S"` (Secondary).
 - **Constraints:** `(name, group)` unique constraint enforced at the database level.
+
+### Future Improvements
+
+Potential enhancements for future iterations include:
+
+Vitest for FE
+Pytest for BE
+Redux state management once the app scales
