@@ -20,12 +20,6 @@ Run the entire application (PostgreSQL, Django Backend, and React Frontend) with
 docker compose up --build -d
 ```
 
-### 2. Run Database Migrations
-
-```bash
-docker compose exec backend python manage.py migrate
-```
-
 ### 3. Access the Application
 
 - **Frontend:** [http://localhost:5173](http://localhost:5173)
@@ -167,6 +161,6 @@ The frontend application will run at [http://localhost:5173/](http://localhost:5
 
 Potential enhancements for future iterations include:
 
-Vitest for FE
-Pytest for BE
-Redux state management once the app scales
+- Vitest for FE
+- Pytest for BE
+- Redux state management once the app scales
