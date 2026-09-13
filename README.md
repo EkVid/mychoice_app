@@ -20,7 +20,7 @@ Run the entire application (PostgreSQL, Django Backend, and React Frontend) with
 docker compose up --build -d
 ```
 
-### 3. Access the Application
+### 2. Access the Application
 
 - **Frontend:** [http://localhost:5173](http://localhost:5173)
 - **Backend API:** [http://localhost:8000/items/](http://localhost:8000/items/)
