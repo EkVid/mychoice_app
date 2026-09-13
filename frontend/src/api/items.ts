@@ -1,4 +1,4 @@
-import { Item } from "../types/Item";
+import type { Item } from "../types/Item";
 
 const config =  {
     DEV_URL: "http://127.0.0.1:8000/",
