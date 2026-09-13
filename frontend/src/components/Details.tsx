@@ -97,6 +97,8 @@ const ItemDetails = ({
 
                     <Button
                         variant="ghost"
+                        bg="white"
+                        color="black"
                         onClick={onClose}
                     >
                         Close
