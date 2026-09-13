@@ -6,17 +6,18 @@ import {
 } from "@chakra-ui/react";
 import type { ListProps } from "./types";
 import ItemCard from "./Card";
+import { ITEMS, NO_ITEMS_FOUND } from "../commons/constants";
 
 
 const ItemList = ({ items, onView }: ListProps) => {
     return (
         <div>
-            <Heading size="lg" mb={4}>Items</Heading>
+            <Heading size="lg" mb={4}>{ITEMS}</Heading>
 
             {items.length === 0 ? (
                 <Card.Root>
                     <Card.Body>
-                        <Text color="gray.500">No items found</Text>
+                        <Text color="gray.500">{NO_ITEMS_FOUND}</Text>
                     </Card.Body>
                 </Card.Root>
             ) : (

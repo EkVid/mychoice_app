@@ -1,4 +1,5 @@
 import type { Item } from "../commons/types/Item";
+import { PRIMARY_ABBREVIATION, SECONDARY_ABBREVIATION } from "../commons/constants";
 
 export interface CardProps {
     item: Item;
@@ -20,3 +21,12 @@ export interface DetailsProps {
     onDeleted: (id: number) => void;
     onClose: () => void;
 }
+
+export interface FieldsProps {
+    name: string;
+    group: ItemGroup;
+    onNameChange: (name: string) => void;
+    onGroupChange: (group: ItemGroup) => void;
+};
+
+export type ItemGroup = typeof PRIMARY_ABBREVIATION | typeof SECONDARY_ABBREVIATION;

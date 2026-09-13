@@ -1,29 +1,33 @@
 import { useState } from "react";
 import {
-    Box,
     Button,
     Card,
     Flex,
     Heading,
-    Input,
-    NativeSelect,
     Stack,
     Text,
 } from "@chakra-ui/react";
 import { createItem } from "../api/items";
-import type { FormProps } from "./types";
+import type { FormProps, ItemGroup } from "./types";
+import { 
+    CREATE_ITEM, 
+    FAIL_CREATE, 
+    SAVE_ERROR,
+    PRIMARY_ABBREVIATION
+} from "../commons/constants";
+import ItemFields from "./Fields";
 
 const ItemForm = ({ onItemCreated }: FormProps) => {
     const [name, setName] = useState("");
     const [group, setGroup] =
-        useState<"P" | "S">("P");
+        useState<ItemGroup>(PRIMARY_ABBREVIATION);
 
     const [error, setError] = useState("");
     const [isCreating, setIsCreating] = useState(false);
 
     const handleSubmit = async () => {
         if (!name.trim()) {
-            setError("Name is required.");
+            setError(SAVE_ERROR);
             return;
         }
 
@@ -42,9 +46,7 @@ const ItemForm = ({ onItemCreated }: FormProps) => {
             setGroup("P");
         } catch (err) {
             setError(
-                err instanceof Error
-                    ? err.message
-                    : "Failed to create item."
+                err instanceof Error ? err.message : FAIL_CREATE
             );
         } finally {
             setIsCreating(false);
@@ -54,42 +56,17 @@ const ItemForm = ({ onItemCreated }: FormProps) => {
     return (
         <Card.Root>
             <Card.Header>
-                <Heading size="md">Create Item</Heading>
+                <Heading size="md">{CREATE_ITEM}</Heading>
             </Card.Header>
 
             <Card.Body>
                 <Stack gap={4}>
-                    <Box>
-                        <Text mb={2} fontWeight="medium">
-                            Name
-                        </Text>
-
-                        <Input
-                            placeholder="Enter item name"
-                            value={name}
-                            onChange={(e) =>
-                                setName(e.target.value)
-                            }
-                        />
-                    </Box>
-
-                    <Box>
-                        <Text mb={2} fontWeight="medium">
-                            Group
-                        </Text>
-
-                        <NativeSelect.Root>
-                            <NativeSelect.Field
-                                value={group}
-                                onChange={(e) =>
-                                    setGroup(e.target.value as "P" | "S")
-                                }
-                            >
-                                <option value="P">Primary</option>
-                                <option value="S">Secondary</option>
-                            </NativeSelect.Field>
-                        </NativeSelect.Root>
-                    </Box>
+                    <ItemFields
+                        name={name}
+                        group={group}
+                        onNameChange={setName}
+                        onGroupChange={setGroup}
+                    />
 
                     {error && (
                         <Text color="red.500" fontSize="sm">
@@ -103,7 +80,7 @@ const ItemForm = ({ onItemCreated }: FormProps) => {
                             onClick={handleSubmit}
                             loading={isCreating}
                         >
-                            Create Item
+                            {CREATE_ITEM}
                         </Button>
                     </Flex>
                 </Stack>
