@@ -36,3 +36,6 @@ export const CREATED = "Created";
 export const UPDATED = "Updated";
 
 export const NO_ITEMS_FOUND = "No items found";
+
+export const TITLE = "Item Manager";
+export const DESCRIPTION = "Manage your Items";

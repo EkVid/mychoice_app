@@ -17,6 +17,7 @@ import type { Item } from "./commons/types/Item";
 import ItemForm from "./components/Form";
 import ItemList from "./components/List";
 import ItemDetails from "./components/Details";
+import { DESCRIPTION, TITLE } from "./commons/constants";
 
 const App = () => {
     const [items, setItems] = useState<Item[]>([]);
@@ -73,8 +74,8 @@ const App = () => {
                 py={8}
             >
                 <Container maxW="container.lg">
-                    <Heading size="xl">Item Manager</Heading>
-                    <Text mt={2} color="blue.100">Manage your Items</Text>
+                    <Heading size="xl">{TITLE}</Heading>
+                    <Text mt={2} color="blue.100">{DESCRIPTION}</Text>
                 </Container>
             </Box>
 
