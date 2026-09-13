@@ -1,17 +1,14 @@
 import {
+    Card,
     Heading,
     SimpleGrid,
     Text,
-    Card,
 } from "@chakra-ui/react";
-import type { Item } from "../commons/types/Item";
+import type { ListProps } from "./types";
 import ItemCard from "./Card";
 
-interface ListProps {
-    items: Item[];
-}
 
-const ItemList = ({ items }: ListProps) => {
+const ItemList = ({ items, onView }: ListProps) => {
     return (
         <div>
             <Heading size="lg" mb={4}>Items</Heading>
@@ -19,9 +16,7 @@ const ItemList = ({ items }: ListProps) => {
             {items.length === 0 ? (
                 <Card.Root>
                     <Card.Body>
-                        <Text color="gray.500">
-                            No items found
-                        </Text>
+                        <Text color="gray.500">No items found</Text>
                     </Card.Body>
                 </Card.Root>
             ) : (
@@ -33,6 +28,7 @@ const ItemList = ({ items }: ListProps) => {
                         <ItemCard
                             key={item.id}
                             item={item}
+                            onView={onView}
                         />
                     ))}
                 </SimpleGrid>

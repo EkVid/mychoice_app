@@ -11,13 +11,9 @@ import {
     Text,
 } from "@chakra-ui/react";
 import { createItem } from "../api/items";
-import type { Item } from "../commons/types/Item";
+import type { FormProps } from "./types";
 
-interface ItemFormProps {
-    onItemCreated: (item: Item) => void;
-}
-
-const ItemForm = ({ onItemCreated }: ItemFormProps) => {
+const ItemForm = ({ onItemCreated }: FormProps) => {
     const [name, setName] = useState("");
     const [group, setGroup] =
         useState<"P" | "S">("P");

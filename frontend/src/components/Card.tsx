@@ -7,21 +7,17 @@ import {
     Stack,
     Text,
 } from "@chakra-ui/react";
-import type { Item } from "../commons/types/Item";
+import type { CardProps } from "./types";
 
-interface CardProps {
-    item: Item;
-}
 
-const ItemCard = ({ item }: CardProps) => {
+const ItemCard = ({ item, onView }: CardProps) => {
     return (
         <Card.Root>
             <Card.Body>
-                <Stack gap={3}>
+                <Stack gap={4}>
                     <Flex justify="space-between" align="center">
                         <Heading size="md">{item.name}</Heading>
-
-                        <Badge colorPalette={ item.group === "P" ? "blue" : "purple"}>
+                        <Badge colorPalette={item.group === "P" ? "blue" : "purple"}>
                             {item.group === "P" ? "Primary" : "Secondary"}
                         </Badge>
                     </Flex>
@@ -30,8 +26,12 @@ const ItemCard = ({ item }: CardProps) => {
                         Item #{item.id}
                     </Text>
 
-                    <Button variant="outline" colorPalette="blue">
-                        View
+                    <Button
+                        variant="outline"
+                        colorPalette="blue"
+                        onClick={() => onView(item.id)}
+                    >
+                        View Details
                     </Button>
                 </Stack>
             </Card.Body>
