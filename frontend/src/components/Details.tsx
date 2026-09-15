@@ -16,7 +16,6 @@ import {
 import type { DetailsProps, ItemGroup } from "./types";
 import { 
     PRIMARY_ABBREVIATION, 
-    SECONDARY_ABBREVIATION,
     SAVE_ERROR,
     FAIL_PATCH,
     FAIL_DELETE,
