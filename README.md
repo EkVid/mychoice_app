@@ -147,9 +147,9 @@ The frontend application will run at [http://localhost:5173/](http://localhost:5
 | Method   | Endpoint       | Description                 | Payload Example                            |
 | -------- | -------------- | --------------------------- | ------------------------------------------ |
 | `GET`    | `/items/`      | List all items              | N/A                                        |
-| `POST`   | `/items/`      | Create a new item           | `{"name": "Widget", "group": "P"}`         |
+| `POST`   | `/items/`      | Create a new item           | `{"name": "Item", "group": "P"}`         |
 | `GET`    | `/items/<id>/` | Retrieve details of an item | N/A                                        |
-| `PATCH`  | `/items/<id>/` | Update an item              | `{"name": "Updated Widget", "group": "S"}` |
+| `PATCH`  | `/items/<id>/` | Update an item              | `{"name": "Updated Item", "group": "S"}` |
 | `DELETE` | `/items/<id>/` | Delete an item              | N/A                                        |
 
 ### Data Model Rules
